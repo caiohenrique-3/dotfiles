@@ -12,8 +12,13 @@
 - alacritty
 
 # v2:
-<p>Work in progress! Still figuring out how to use suckless software.</p>
+<p>Switched almost everything to use suckless software.</p>
+
+[Pre-patched files](https://github.com/caiohenrique-3/suckless-dotfiles)
+
+![2023-09-21_14-30](https://github.com/caiohenrique-3/dotfiles/assets/104094613/c95d2fa6-8f50-4e69-82f6-a9069957d6cb)
 
 - dwm
 - dmenu
 - st
+- slstatus
