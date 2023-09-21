@@ -7,9 +7,9 @@
 ![screenshot-v1-2](https://github.com/caiohenrique-3/dotfiles/assets/104094613/67b14f66-ee0f-47ae-b459-fc58b0326824)
 
 - bspwm
-- polybar
 - rofi
 - alacritty
+- polybar
 
 # v2:
 <p>Switched almost everything to use suckless software.</p>

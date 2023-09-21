@@ -1,6 +1,2 @@
-1/.config/mpd/playlists/
-2/.config/mpd/playlists/
-1/.config/mpd/mpd.db
-2/.config/mpd/mpd.db
-1/.config/ncmpcpp/error.log
-2/.config/ncmpcpp/error.log
+.config/mpd/playlists/
+.config/mpd/mpd.db
