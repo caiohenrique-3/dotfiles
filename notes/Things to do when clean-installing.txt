@@ -1,0 +1,61 @@
+Install xdg-user-dirs -> xdg-user-dirs-update
+Install gufw -> enable ufw in systemd
+Install unzip
+Install p7zip
+Install unrar
+Install yay
+Install noto-fonts-*
+Install JetBrainsMono Nerd Font to '/usr/share/fonts'
+Install alsa-utils
+Install thunar, gvfs, thunar-archive-plugin
+Install trash-cli
+Install lf + ueberzugpp (aur) + dependencies for preview
+Install fzf
+Install ytfzf
+Install grep
+Install chafa
+
+Install pacman-contrib and enable paccache.timer 
+(Clean pacman cache, saving space) 
+
+Install microcode from amd
+
+Check if SSD trim is enabled - > systemctl status fstrim.timer
+ 
+Check if using the LTS kernel -> uname -r
+
+Install zsh, oh-my-zsh, p10k config, zsh-autosuggestions, zsh-syntax-highlighting
+
+Install lxappearance -> sudo pacman -S arc-gtk-theme
+Install qt5ct, kvantum manager -> arc-dark-theme
+______________________________________________________________
+
+- Add user to autologin
+
+- sudo nvim /etc/default/grub
+
+- GRUB_FORCE_HIDDEN_MENU="true"
+
+- GRUB_CMDLINE_LINUX="nvidia-drm.modeset=1" (for gamescope)
+
+- Copy 31_hold_shift to /etc/grub.d/
+
+- grub-mkconfig -o /boot/grub/grub.cfg
+______________________________________________________________
+
+Programs:
+firefox, geany, redshift, timeshift, 
+keepassxc, steam, Xarchiver, nitrogen, neovim (+ nvchad),
+flameshot, htop, feh, chatterino-appimage,
+,kde-connect, mpv, streamlinktwitchgui, zathura
+______________________________________________________________
+
+xdg-settings set default-web-browser <choice> 
+
+OLD/DEPRECATED:
+Install alacritty
+Install polkit, polkit-gnome -> autostart 
+Install picom -> autostart 
+Install polybar -> autostart 
+Install dunst -> autostart
+Install rofi
