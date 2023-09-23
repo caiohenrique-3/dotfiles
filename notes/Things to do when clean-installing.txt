@@ -44,7 +44,7 @@ ______________________________________________________________
 ______________________________________________________________
 
 Programs:
-firefox, geany, redshift, timeshift, 
+firefox,qutebrowser, geany, redshift, timeshift, 
 keepassxc, steam, Xarchiver, nitrogen, neovim (+ nvchad),
 flameshot, htop, feh, chatterino-appimage,
 ,kde-connect, mpv, streamlinktwitchgui, zathura
