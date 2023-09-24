@@ -39,6 +39,10 @@ config.bind('<Space>m', 'spawn mpv {url}')
 config.bind('<Space>je', 'set content.javascript.enabled true')
 config.bind('<Space>jd', 'set content.javascript.enabled false')
 
+# Workaround for soyhub not working..
+config.bind('<Space>ce', 'set content.cookies.accept no-3rdparty')
+config.bind('<Space>cd', 'set content.cookies.accept never')
+
 # Default keybinds helper
 config.bind('<Space>hb', 'open -t qute://help/img/cheatsheet-big.png')
 
