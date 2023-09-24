@@ -14,6 +14,7 @@ Install fzf
 Install ytfzf
 Install grep
 Install chafa
+Install pywal
 
 Install pacman-contrib and enable paccache.timer 
 (Clean pacman cache, saving space) 
