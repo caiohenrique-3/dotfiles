@@ -19,18 +19,15 @@ export PATH=$PATH:/home/unknown/.config/lf/scripts
 export PATH=$PATH:/home/unknown/.config/yt/scripts
 
 
-export EDITOR="lvim"
-export VISUAL="lvim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # Aliases
 alias yt=ytfzf
 alias lf=lfub.sh
-alias vim=lvim
-alias m="mpv --profile=1080p"
-alias tr="trash-put"
-alias trr="trash-restore"
-alias trl="trash-list"
+alias vim=nvim
 alias twm="/home/unknown/Documents/miner.sh"
+alias m="mpv --profile=1080p"
 alias n=ncmpcpp
 
 # Set name of the theme to load --- if set to "random", it will
