@@ -39,19 +39,12 @@ local plugins = {
   },
 
   -- Install a plugin
-  {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
-  },
 
   {
     "windwp/nvim-ts-autotag",
     lazy = false,
     config = function()
-      require("plugins.configs.treesitter")
+      require "plugins.configs.treesitter"
     end,
   },
 
