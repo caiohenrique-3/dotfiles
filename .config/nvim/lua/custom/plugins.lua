@@ -38,6 +38,15 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      user_default_options = {
+        tailwind = true,
+      },
+    },
+  },
+
   -- Install a plugin
 
   {
