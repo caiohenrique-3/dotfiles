@@ -72,6 +72,7 @@ M.nvimtree = {
       show = {
         git = true,
       },
+      padding = " ",
     },
   },
 }

@@ -47,6 +47,14 @@ local plugins = {
     },
   },
 
+  {
+    "rafamadriz/friendly-snippets",
+    config = function()
+      require("luasnip").filetype_extend("jsx", { "html" })
+      require("luasnip").filetype_extend("php", { "html" })
+    end,
+  },
+
   -- Install a plugin
 
   {
@@ -59,7 +67,7 @@ local plugins = {
 
   {
     "mg979/vim-visual-multi",
-    lazy = false,
+    lazy = true,
   },
 
   -- To make a plugin not be loaded
