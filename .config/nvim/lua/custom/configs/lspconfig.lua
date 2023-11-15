@@ -13,5 +13,11 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.svelte.setup {
+  capabilities = {
+    documentFormattingProvider = true,
+  },
+}
+
 --
 -- lspconfig.pyright.setup { blabla}

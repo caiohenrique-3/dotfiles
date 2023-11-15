@@ -9,7 +9,7 @@ M.treesitter = {
     "javascript",
     "typescript",
     "tsx",
-    -- "c",
+    "c",
     "markdown",
     "markdown_inline",
     "svelte",
