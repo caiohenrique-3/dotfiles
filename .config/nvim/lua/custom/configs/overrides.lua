@@ -13,6 +13,7 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "svelte",
+    "python",
   },
   indent = {
     enable = true,

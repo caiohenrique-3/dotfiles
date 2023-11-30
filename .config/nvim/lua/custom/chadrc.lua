@@ -2,7 +2,7 @@
 local M = {}
 
 M.ui = {
-  theme = "nightfox",
+  theme = "oceanic-next",
   nvdash = {
     load_on_startup = true,
   },
