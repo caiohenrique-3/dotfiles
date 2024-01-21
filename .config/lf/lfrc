@@ -19,11 +19,11 @@ cmd mkdir ${{
 cmd mkfile ${{
   printf "File Name: "
   read ans
-  /home/unknown/.local/bin/lvim $ans
+  nvim $ans
 }}
 
 cmd openeditor ${{
-  /home/unknown/.local/bin/lvim "$f"
+  nvim "$f"
 }}
 
 # y (select for copy) and P to paste soft-link
@@ -111,6 +111,10 @@ cmd restore_trash ${{
   trash-restore
 }}
 
+cmd set_wallpaper ${{
+    feh --bg-fill "$f"
+}}
+
 # Bindings
 map d
 map m
@@ -134,8 +138,10 @@ map mf mkfile
 map md mkdir
 map ml mklink
 map mb mkbookmark
+map sw set_wallpaper
 
 # Movement
+map gH cd ~/HD
 map gD cd ~/Documents
 map gd cd ~/HD/downloads
 map gp cd ~/Pictures
