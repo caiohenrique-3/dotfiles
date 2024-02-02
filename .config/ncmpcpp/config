@@ -5,7 +5,7 @@
 # mpd_port = "7777"
 mpd_crossfade_time = "5"
 
-execute_on_song_change = ~/.config/ncmpcpp/scripts/mpd-notify.sh 
+execute_on_song_change = ~/.config/ncmpcpp/scripts/mpd-notify.sh
 
 # VISUALIZER
 # ---
@@ -21,8 +21,8 @@ visualizer_spectrum_smooth_look = "yes"
 # GENERAL
 # ---
 connected_message_on_startup = "yes"
-cyclic_scrolling = "yes"
-mouse_support = "yes"
+cyclic_scrolling = "no"
+mouse_support = "no"
 mouse_list_scroll_whole_page = "yes"
 lines_scrolled = "1"
 message_delay_time = "1"
@@ -75,7 +75,8 @@ song_list_format = " {%t $R   $8%a$8}|{%f $R   $8%l$8} $8"
 
 # song_status_format = "$b$6$7[$8      $7]$6 $2 $7{$8 %b }|{$8 %t }|{$8 %f }$7 $8"
 
-song_status_format = "$6[$8 %t $7]$6 {$8%a - %b }|{$8 %f }$7 $8"
-
+# song_status_format = "$6[$8 %t $7]$6 {$8%a - %b }|{$8 %f }$7 $8"
+#
+song_status_format = "$3%t"
 
 song_window_title_format = "Now Playing .."
