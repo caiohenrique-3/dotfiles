@@ -1,0 +1,25 @@
+# Player Settings
+player=mpv
+
+# Player arguments (passed to the player)
+player-args=--no-border
+
+# Player HTTP settings
+player-http
+
+# Player continuous stream settings
+player-continuous-http
+
+# Player passthrough settings (comma-separated)
+player-passthrough=hls,http,rtmp
+
+# Stream Settings
+stream-segment-threads=2
+
+# Twitch Settings
+twitch-disable-ads
+twitch-low-latency
+twitch-disable-hosting
+
+# Default Stream Quality
+default-stream=best
