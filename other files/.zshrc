@@ -103,20 +103,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# stuff
-alias yt='ytfzf' 
-alias ex='exit' # ctrl-d?
-alias msc='ncmpcpp'
-
-# git
-alias gc="git commit"
-alias ga="git add"
-alias gp="git push"
-alias gs="git status"
-alias gm="git mv"
-alias gd="git diff"
-alias gap="git add -p"
-
+source ~/.aliases
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
