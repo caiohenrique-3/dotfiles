@@ -2,6 +2,13 @@
 alias ex='exit' # ctrl-d?
 alias msc='ncmpcpp'
 
+# cpu stuff
+alias cpupf='sudo auto-cpufreq --force=performance'
+alias cpups='sudo auto-cpufreq --force=powersave'
+alias cpurs='sudo auto-cpufreq --force=reset'
+alias mhz='cat /proc/cpuinfo | grep "MHz"'
+alias cputemp="sensors | awk '/^Tctl/ {print $2}'"
+
 # Git
 alias gc="git commit"
 alias ga="git add"
@@ -13,6 +20,8 @@ alias gap="git add -p"
 
 # Youtube stuff
 alias yt='ytfzf' 
+alias yh='ytfzf -H'
+alias yha='ytfzf -H -m'
 alias dlvid='yt-dlp -S res,ext:mp4:m4a --recode mp4'
 alias dlmp3='yt-dlp -f 'ba' -x --audio-format mp3'
 
