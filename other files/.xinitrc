@@ -49,6 +49,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 xrandr --output HDMI-A-0 --primary --left-of DisplayPort-0 &
+xrandr --output DisplayPort-0 --right-of HDMI-A-0 &
 xrandr --output DisplayPort-0 --gamma 0.55 &
 xrandr --output DisplayPort-0 --gamma 1.4:1.4:1.2 &
 ~/.fehbg &
@@ -60,4 +61,4 @@ slstatus &
 picom &
 /usr/bin/polkit-dumb-agent &
 redshift &
-exec dwm
+exec ./Scripts/startdwm
