@@ -25,6 +25,12 @@ alias yha='ytfzf -H -m'
 alias dlvid='yt-dlp -S res,ext:mp4:m4a --recode mp4'
 alias dlmp3='yt-dlp -f 'ba' -x --audio-format mp3'
 
+# translate-shell
+alias trs='trans -s de -t en -speak'
+alias trsb='trans -s de -t en -b'
+alias trsa='trans -s de -no-translate -speak'
+alias trse='trans -s en -t de'
+
 # Control 'cd' behavior
 alias cd..='cd ..'
 alias ..='cd ..'
