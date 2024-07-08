@@ -1,6 +1,7 @@
 # Other
 alias ex='exit' # ctrl-d?
 alias msc='ncmpcpp'
+alias lfub='/home/unknown/.config/lf/scripts/lfub.sh'
 
 # cpu stuff
 alias cpupf='sudo auto-cpufreq --force=performance'
