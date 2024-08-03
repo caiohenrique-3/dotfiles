@@ -16,6 +16,7 @@ keybindings=(
     "super + shift + m       : mount media" 
     "super + shift + p       : power menu" 
     "super + shift + r       : reset wallpaper" 
+    "super + shift + u       : umlaut" 
     "super + b               : toggle bar" 
     "super + j               : focus stack forward" 
     "super + k               : focus stack backward" 
