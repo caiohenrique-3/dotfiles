@@ -1,0 +1,74 @@
+# vim: ft=cfg
+
+# See dunst(5) for all configuration options
+
+[global]
+    width = (0, 500)
+    height = (0, 400)
+    notification_limit = 5
+    offset = 10x40
+    progress_bar = true
+    progress_bar_height = 4
+    progress_bar_min_width = 160
+    progress_bar_max_width = 360
+    progress_bar_frame_width = 1
+    indicate_hidden = false
+    separator_height = 2
+    padding = 15
+    text_icon_padding = 15
+    horizontal_padding = 15
+    frame_width = 2
+    separator_color = frame
+    sort = true
+    font = JetBrains Mono Nerd Font Medium 10
+    line_height = 0
+    format = "<b>%s</b>\n%b"
+    vertical_alignment = center 
+    show_age_threshold = -1
+    ignore_newline = false
+    hide_duplicate_count = true
+    show_indicators = false
+    icon_path = /usr/share/icons/Papirus-Dark/48x48/apps:/usr/share/icons/Papirus-Dark/48x48/devices:/usr/share/icons/Papirus-Dark/48x48/mimetypes:/usr/share/icons/Papirus-Dark/48x48/places:/usr/share/icons/Papirus-Dark/48x48/actions:/usr/share/icons/Papirus-Dark/48x48/status
+    sticky_history = false
+    mouse_left_click = do_action
+    mouse_middle_click = close_current
+    mouse_right_click = context
+    ignore_dbusclose = false
+    always_run_script = true
+
+    frame_color = "#282c34"
+    min_icon_size = 0
+    max_icon_size = 70
+    icon_position = left
+    ellipsize = end
+    alignment = left
+    markup = full
+
+[experimental]
+    per_monitor_dpi = false
+
+[urgency_low]
+    background = "#181b20"
+    foreground = "#a0a8b7"
+    highlight = "#535965"
+    timeout = 3
+    icon = gnome-info
+
+[urgency_normal]
+    background = "#181b20"
+    foreground = "#a0a8b7"
+    highlight = "#535965"
+    timeout = 5
+    icon = gnome-info
+
+[urgency_critical]
+    background = "#181b20"
+    foreground = "#a0a8b7"
+    frame_color = "#e2b86b"
+    highlight = "#535965"
+    timeout = 5
+    icon = gnome-warning
+
+[screenshots]
+    summary = "*Screenshot*"
+    max_icon_size = 128

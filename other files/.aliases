@@ -1,0 +1,69 @@
+# Other
+alias ex='exit' # ctrl-d?
+alias msc='ncmpcpp'
+alias lfub='/home/unknown/.config/lf/scripts/lfub.sh'
+
+# cpu stuff
+alias cpupf='sudo auto-cpufreq --force=performance'
+alias cpups='sudo auto-cpufreq --force=powersave'
+alias cpurs='sudo auto-cpufreq --force=reset'
+alias mhz='cat /proc/cpuinfo | grep "MHz"'
+alias cputemp="sensors | awk '/^Tctl/ {print $2}'"
+
+# Git
+alias gc="git commit"
+alias ga="git add"
+alias gp="git push"
+alias gs="git status"
+alias gm="git mv"
+alias gd="git diff"
+alias gap="git add -p"
+
+# Youtube stuff
+alias yt='ytfzf' 
+alias yh='ytfzf -H'
+alias yha='ytfzf -H -m'
+alias dlvid='yt-dlp -S res,ext:mp4:m4a --recode mp4'
+alias dlmp3='yt-dlp -f 'ba' -x --audio-format mp3'
+
+# translate-shell
+alias trs='trans -s de -t en -speak'
+alias trsb='trans -s de -t en -b'
+alias trsa='trans -s de -no-translate -speak'
+alias trse='trans -s en -t de'
+
+# Control 'cd' behavior
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+# Start calculator with math support
+alias bc='bc -l'
+
+# Control output of networking tool ping
+alias ping='ping -c 5'
+alias fastping='ping -c 100 -s.2'
+
+# Add safety nets
+alias rm='rm -I --preserve-root'
+ 
+alias mv='mv -iv'
+alias cp='cp -iv'
+alias ln='ln -i'
+ 
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+# Resume wget by default
+alias wget='wget -c'
+
+# Create parent directories on demand
+alias mkdir='mkdir -pv'
+
+# Show folder size
+alias fs='du -hs'
