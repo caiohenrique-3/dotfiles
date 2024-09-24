@@ -2,24 +2,15 @@
 player=mpv
 
 # Player arguments (passed to the player)
-player-args=--no-border
-
-# Player HTTP settings
-player-http
-
-# Player continuous stream settings
-player-continuous-http
-
-# Player passthrough settings (comma-separated)
-player-passthrough=hls,http,rtmp
+player-args=--no-border --no-keepaspect-window --window-maximized=yes --loop-playlist=inf --loop-file=inf --cache=yes --demuxer-max-back-bytes=120M
 
 # Stream Settings
 stream-segment-threads=2
+hls-live-edge=1
 
 # Twitch Settings
 twitch-disable-ads
 twitch-low-latency
-twitch-disable-hosting
 
 # Default Stream Quality
 default-stream=best
