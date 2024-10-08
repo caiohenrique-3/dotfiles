@@ -3,13 +3,22 @@ set cleaner ~/.config/lf/scripts/cleaner.sh
 set shell zsh
 set shellopts '-eu'
 set ifs "\n"
-
-# Basic Settings
+set drawbox
+set info size:time
 set hidden false 
 set ignorecase true
 set icons true 
 
-# Custom Functions
+cmd on-redraw %{{
+    if [ "$lf_width" -le 80 ]; then
+        lf -remote "send $id set ratios 1:2"
+    elif [ "$lf_width" -le 160 ]; then
+        lf -remote "send $id set ratios 1:2:3"
+    else
+        lf -remote "send $id set ratios 1:2:3:5"
+    fi
+}}
+
 cmd mkdir ${{
   printf "Directory Name: "
   read ans
@@ -27,7 +36,7 @@ cmd openeditor ${{
 }}
 
 # y (select for copy) and P to paste soft-link
-# d (select for cut) and P to paste hard-link
+# x (select for cut) and P to paste hard-link
 cmd mklink %{{
     set -- $(cat ~/.local/share/lf/files)
     mode="$1"
@@ -50,7 +59,6 @@ cmd follow_link %{{
   lf -remote "send ${id} select '$(readlink $f)'"
 }}
 
-
 cmd bookmark_jump ${{
   res="$(cat /home/unknown/.config/lf/bookmarks/$(ls /home/unknown/.config/lf/bookmarks | fzf))"
   lf -remote "send $id cd \"$res\""
@@ -62,8 +70,6 @@ cmd mkbookmark ${{
   echo $PWD > /home/unknown/.config/lf/bookmarks/$ans
 }}
 
-
-# Archive bindings
 cmd unarchive ${{
   case "$f" in
       *.zip) unzip "$f" ;;
@@ -92,7 +98,6 @@ cmd zip ${{
     rm -rf $1
 }}
 
-# Trash bindings
 cmd trash ${{
   files=$(printf "$fx" | tr '\n' ';')
   while [ "$files" ]; do
@@ -115,7 +120,12 @@ cmd set_wallpaper ${{
     feh --bg-fill "$f"
 }}
 
-# Bindings
+cmd edit-config ${{
+    nvim ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+map C edit-config
 map d
 map m
 map au unarchive
@@ -125,7 +135,6 @@ map am targz
 map e openeditor
 map o &xdg-open $f
 
-# Basic Functions
 map . set hidden!
 map dd trash
 map dr restore_trash
@@ -141,14 +150,16 @@ map mb mkbookmark
 map sw set_wallpaper
 map t search
 
-# Movement
+# Go to
 map gH cd ~/HD
 map gD cd ~/Documents
 map gd cd ~/HD/downloads
 map gp cd ~/Pictures
 map gc cd ~/.config
 map gr cd ~/HD/repos
-map gp cd /run/media/unknown/pendrive2
 map gt cd ~/.local/share/Trash/files
 map gb bookmark_jump
 map gL follow_link
+
+# Warn about nested instances
+&[ "$LF_LEVEL" -eq 1 ] || lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
