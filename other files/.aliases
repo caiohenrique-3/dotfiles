@@ -25,6 +25,7 @@ alias gap="git add -p"
 alias yt='ytfzf' 
 alias yh='ytfzf -H'
 alias yha='ytfzf -H -m'
+alias ys='ytfzf -c youtube-subscriptions'
 alias dlvid='yt-dlp -S res,ext:mp4:m4a --recode mp4'
 alias dlmp3='yt-dlp -f 'ba' -x --audio-format mp3'
 
