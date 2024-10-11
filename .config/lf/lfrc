@@ -125,9 +125,29 @@ cmd edit-config ${{
     lf -remote "send $id source ~/.config/lf/lfrc"
 }}
 
+cmd paste-override &{{
+	set -f
+	mode=$(head -1 ~/.local/share/lf/files)
+	list=$(sed 1d ~/.local/share/lf/files)
+	set -- _ $list; shift
+	[ $# -gt 0 ] || exit
+	case $mode in
+		copy)
+			rsync -r "$@" ./
+			;;
+		move)
+			rsync -r --remove-source-files "$@" ./
+			;;
+	esac
+	lf -remote 'save\nmove\n'
+	lf -remote "send $id load"
+	lf -remote "send $id echo \"\033[0;32mpasted $# file(s)\033[0m\""
+}}
+
 map C edit-config
 map d
 map m
+map p
 map au unarchive
 map az zip
 map at tar 
@@ -138,7 +158,8 @@ map o &xdg-open $f
 map . set hidden!
 map dd trash
 map dr restore_trash
-map p paste
+map pp paste
+map po paste-override
 map x cut
 map y copy
 map <enter> open
