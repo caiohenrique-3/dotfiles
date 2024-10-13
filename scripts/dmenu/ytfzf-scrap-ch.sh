@@ -19,4 +19,4 @@ selected_channel=$(echo "$channels" | fzf --delimiter=' ' --with-nth=1)
 channel_url=$(echo "$selected_channel" | awk '{print $NF}')
 
 # Run the ytfzf command with the selected channel URL
-ytfzf -c youtube-channel "$channel_url"
+ytfzf -c invidious-channel "$channel_url"
