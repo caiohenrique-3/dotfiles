@@ -1,0 +1,8 @@
+theme: hacker 
+focus.on_startup: "collection"
+focus.on_response: "body"
+pager: "bat"
+pager_json: "bat"
+heading:
+  visible: false 
+  show_host: false
