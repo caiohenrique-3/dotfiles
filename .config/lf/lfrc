@@ -3,11 +3,9 @@ set cleaner ~/.config/lf/scripts/cleaner.sh
 set shell zsh
 set shellopts '-eu'
 set ifs "\n"
-set drawbox
 set info size:time
 set hidden false 
 set ignorecase true
-set icons true 
 
 cmd on-redraw %{{
     if [ "$lf_width" -le 80 ]; then
@@ -120,6 +118,10 @@ cmd set_wallpaper ${{
     feh --bg-fill "$f"
 }}
 
+cmd set_color_scheme ${{
+    wal -i "$f"
+}}
+
 cmd edit-config ${{
     nvim ~/.config/lf/lfrc
     lf -remote "send $id source ~/.config/lf/lfrc"
@@ -169,6 +171,7 @@ map md mkdir
 map ml mklink
 map mb mkbookmark
 map sw set_wallpaper
+map sc set_color_scheme 
 map t search
 
 # Go to
@@ -181,6 +184,7 @@ map gr cd ~/HD/repos
 map gt cd ~/.local/share/Trash/files
 map gb bookmark_jump
 map gL follow_link
+map gw cd ~/Pictures/Wallpapers/
 
 # Warn about nested instances
 &[ "$LF_LEVEL" -eq 1 ] || lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
