@@ -4,22 +4,11 @@ alias msc='ncmpcpp'
 alias lfub='/home/unknown/.config/lf/scripts/lfub.sh'
 alias lwal='/home/unknown/.last_wallpaper'
 alias weather='curl wttr.in'
+alias get-last-update='/home/unknown/Scripts/last-system-upgrade.sh'
 
 # cpu stuff
-alias cpupf='sudo auto-cpufreq --force=performance'
-alias cpups='sudo auto-cpufreq --force=powersave'
-alias cpurs='sudo auto-cpufreq --force=reset'
 alias mhz='cat /proc/cpuinfo | grep "MHz"'
 alias cputemp="sensors | awk '/^Tctl/ {print $2}'"
-
-# Git
-alias gc="git commit"
-alias ga="git add"
-alias gp="git push"
-alias gs="git status"
-alias gm="git mv"
-alias gd="git diff"
-alias gap="git add -p"
 
 # Youtube stuff
 alias yt='ytfzf' 
