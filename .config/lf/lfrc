@@ -4,16 +4,21 @@ set shell zsh
 set shellopts '-eu'
 set ifs "\n"
 set info size:time
+set dircounts
 set hidden false 
 set ignorecase true
+set ratios 1:5
+set scrolloff 10
+set drawbox
+set nopreview
 
-cmd on-redraw %{{
-    if [ "$lf_width" -le 80 ]; then
-        lf -remote "send $id set ratios 1:2"
-    elif [ "$lf_width" -le 160 ]; then
-        lf -remote "send $id set ratios 1:2:3"
+cmd toggle-preview %{{
+    if [ "$lf_preview" = true ]; then
+        lf -remote "send $id :set preview false; set ratios 1:5"
+        echo "Preview is off"
     else
-        lf -remote "send $id set ratios 1:2:3:5"
+        lf -remote "send $id :set preview true; set ratios 1:2:3"
+        echo "Preview is on"
     fi
 }}
 
@@ -157,6 +162,7 @@ map am targz
 map e openeditor
 map o &xdg-open $f
 
+map zp toggle-preview
 map . set hidden!
 map dd trash
 map dr restore_trash
