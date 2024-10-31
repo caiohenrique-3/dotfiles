@@ -1277,10 +1277,10 @@ function bar_layout(direction)
     -- lo.style = osc_styles.buttonsRight
 
     -- Loop
-    geo = { x = geo.x - bw3 - marg_r, y = geo.y, an = geo.an, w = btnw_rightlbl, h = geo.h }
-    lo = add_layout("cy_loop")
-    lo.geometry = geo
-    lo.style = osc_styles.buttonsRight
+    -- geo = { x = geo.x - bw3 - marg_r, y = geo.y, an = geo.an, w = btnw_rightlbl, h = geo.h }
+    -- lo = add_layout("cy_loop")
+    -- lo.geometry = geo
+    -- lo.style = osc_styles.buttonsRight
 
     -- Ontop
     -- geo = { x = geo.x - bw4 - marg_r, y = geo.y, an = geo.an, w = geo.w, h = geo.h }
@@ -1290,10 +1290,10 @@ function bar_layout(direction)
 
 
     -- Closed Captures selection buttons
-    geo = { x = geo.x - bw4 - marg_r, y = geo.y, an = geo.an, w = geo.w, h = geo.h }
-    lo = add_layout("cy_sub")
-    lo.geometry = geo
-    lo.style = osc_styles.buttonsRight
+    -- geo = { x = geo.x - bw4 - marg_r, y = geo.y, an = geo.an, w = geo.w, h = geo.h }
+    -- lo = add_layout("cy_sub")
+    -- lo.geometry = geo
+    -- lo.style = osc_styles.buttonsRight
 
 
     -- Track selection buttons
