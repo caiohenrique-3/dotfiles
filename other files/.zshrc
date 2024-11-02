@@ -47,11 +47,14 @@ cheatsh() {
 
 # Command history
 HISTFILE=~/.histfile
-HISTSIZE=2500
-SAVEHIST=2500
+HISTSIZE=7777
+SAVEHIST=7777
 
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
+
+# zsh-history-substring-search
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
 # Command completion 
 autoload -Uz compinit 
@@ -64,14 +67,19 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 
 compinit
 
+# Zoxide
+eval "$(zoxide init zsh)"
+
 # Keybinds
-bindkey "^[[A" autosuggest-accept  # up arrow     | complete
-bindkey '^I'   complete-word       # tab          | complete
-bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
+bindkey '^I'   complete-word                    # tab          | complete
+bindkey '^[[Z' autosuggest-accept               # shift + tab  | autosuggest
+bindkey '^[[A' history-substring-search-up      # up arrow     | history 
+bindkey '^[[B' history-substring-search-down    # down arrow   | history
 
 # Plugins
 source ~/.config/zsh/plugins/git/git.plugin.zsh
 source ~/.config/zsh/plugins/extract/extract.plugin.zsh
 source ~/.config/zsh/plugins/you-should-use/you-should-use.plugin.zsh
+source ~/.config/zsh/plugins/history-substring-search/zsh-history-substring-search.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

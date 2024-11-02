@@ -1,3 +1,10 @@
 .config/mpd/playlists/
 .config/mpd/mpd.db
 .config/lf/bookmarks
+.config/zsh/plugins/you-should-use/.circleci
+.config/zsh/plugins/you-should-use/img
+.config/zsh/plugins/you-should-use/tests
+.config/zsh/plugins/you-should-use/CHANGELOG.md
+.config/zsh/plugins/you-should-use/ISSUE_TEMPLATE.md
+.config/zsh/plugins/you-should-use/LICENSE
+.config/zsh/plugins/you-should-use/README.rst
