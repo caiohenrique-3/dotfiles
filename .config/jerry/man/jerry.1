@@ -1,0 +1,86 @@
+.TH JERRY 1 "2024 November" "jerry 1.0"
+
+.SH NAME
+jerry \- search and watch anime with various options
+
+.SH SYNOPSIS
+.B jerry
+.RI [ options ]
+.RI [ query ]
+
+.SH DESCRIPTION
+.PP
+.B jerry
+is a script that allows users to search for and watch anime with various options.
+If a query is provided, it will be used to search for an anime, and will default to the 'Watch New' option.
+
+.SH OPTIONS
+.TP
+.BI \-c , --continue
+Continue watching from the currently watching list (using the user's Anilist account).
+
+.TP
+.BI \--dub
+Allows user to watch anime in dub.
+
+.TP
+.BI \-d , --discord
+Display currently watching anime in Discord Rich Presence (jerrydiscordpresence.py is required for this; check the wiki for instructions on how to install it).
+
+.TP
+.BI \-e , --edit
+Edit config file using an editor defined with jerry_editor in the config (\$EDITOR by default). If a config file does not exist, creates one with a default configuration.
+
+.TP
+.BI \-h , --help
+Show this help message and exit.
+
+.TP
+.BI \-i , --image-preview
+Allows image preview in fzf and rofi.
+
+.TP
+.BI \-j , --json
+Outputs the JSON containing video links, subtitle links, referrers, etc. to stdout.
+
+.TP
+.BI \-l , --language
+Specify the subtitle language.
+
+.TP
+.BI \-n , --number
+Specify the episode number for an anime.
+
+.TP
+.BI \--rofi , --dmenu , --external-menu
+Use an external menu (instead of the default fzf) to select an anime (default is rofi, but this can be specified in the config file).
+
+.TP
+.BI \-q , --quality
+Specify the video quality.
+
+.TP
+.BI \-s , --syncplay
+Watch anime together with friends, using Syncplay (only tested using mpv).
+
+.TP
+.BI \-u , --update
+Update the script.
+
+.TP
+.BI \-v , --version
+Show the script version.
+
+.TP
+.BI \-w , --website
+Choose which website to get video links from (default: allanime; currently supported: allanime, aniwatch, yugen, hdrezka, and crunchyroll).
+
+.SH NOTES
+.PP
+All arguments can be specified in the config file as well. If an argument is specified in both the config file and the command line, the command line argument will be used.
+
+.SH EXAMPLES
+.PP
+.B jerry -q 720 banana fish
+.B jerry --rofi -l russian cyberpunk edgerunners -i -n 2
+.B jerry -l spanish cyberpunk edgerunners --number 2 --json
