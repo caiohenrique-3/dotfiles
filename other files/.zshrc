@@ -80,6 +80,6 @@ bindkey '^[[B' history-substring-search-down    # down arrow   | history
 source ~/.config/zsh/plugins/git/git.plugin.zsh
 source ~/.config/zsh/plugins/extract/extract.plugin.zsh
 source ~/.config/zsh/plugins/you-should-use/you-should-use.plugin.zsh
-source ~/.config/zsh/plugins/history-substring-search/zsh-history-substring-search.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
