@@ -1,0 +1,6 @@
+_streamer_completion() {
+    local cur_word
+    cur_word="${words[CURRENT]}"
+    compadd $(cat ~/.config/twitch/streamers)
+}
+compdef _streamer_completion tw

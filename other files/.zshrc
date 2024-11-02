@@ -45,6 +45,15 @@ cheatsh() {
     curl cheat.sh/"$1" | bat
 }
 
+# Open a twitch stream with streamlink
+tw() {
+    if [ -z "$1" ]; then
+        echo "Usage: tw <streamer_name>"
+        return 1
+    fi
+    streamlink twitch.tv/$1
+}
+
 # Command history
 HISTFILE=~/.histfile
 HISTSIZE=7777
@@ -66,6 +75,9 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 compinit
+
+# Twitch streamer name autocompletion for tw() function
+source ~/.config/twitch/streamer_completion
 
 # Zoxide
 eval "$(zoxide init zsh)"
