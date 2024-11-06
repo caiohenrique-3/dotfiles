@@ -1,6 +1,6 @@
 #!/bin/sh
 
-userresources=$HOME/.Xresources
+userresources=$HOME/.config/X11/Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
@@ -57,6 +57,6 @@ slstatus &
 /usr/bin/polkit-dumb-agent &
 redshift &
 ~/.screenlayout/screen.sh &
-mpv --no-video ~/Downloads/win95.mp3 2>/dev/null &
+mpv --no-video ~/Music/win95.mp3 2>/dev/null &
 picom &
 exec ./Scripts/startdwm

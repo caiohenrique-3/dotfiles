@@ -1,10 +1,13 @@
 # Other
 alias ex='exit' # ctrl-d?
 alias msc='ncmpcpp'
-alias lfub='/home/unknown/.config/lf/scripts/lfub.sh'
-alias lwal='/home/unknown/.last_wallpaper'
-alias weather='curl wttr.in'
-alias get-last-update='/home/unknown/Scripts/last-system-upgrade.sh'
+alias lfub='~/.config/lf/scripts/lfub.sh'
+alias lwal='~/.last_wallpaper'
+alias weather='curl wttr.in | bat'
+alias get-last-update='~/Scripts/last-system-upgrade.sh'
+alias lzg='lazygit'
+alias fetch='fastfetch'
+alias ls='eza'
 
 # cpu stuff
 alias mhz='cat /proc/cpuinfo | grep "MHz"'
@@ -15,7 +18,7 @@ alias yt='ytfzf'
 alias yh='ytfzf -H'
 alias yha='ytfzf -H -m'
 alias yss='ytfzf -c youtube-subscriptions'
-alias ysc='/home/unknown/Scripts/ytfzf-scrap-ch.sh .ytch'
+alias ysc='~/Scripts/ytfzf-scrap-ch.sh ~/.config/ytfzf/ytch'
 alias dlvid='yt-dlp -S res,ext:mp4:m4a --recode mp4'
 alias dlmp3='yt-dlp -f 'ba' -x --audio-format mp3'
 
