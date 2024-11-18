@@ -8,6 +8,7 @@ alias get-last-update='~/Scripts/last-system-upgrade.sh'
 alias lzg='lazygit'
 alias fetch='fastfetch'
 alias ls='eza'
+alias remove-metadata='~/Scripts/remove_metadata.sh'
 
 # cpu stuff
 alias mhz='cat /proc/cpuinfo | grep "MHz"'
