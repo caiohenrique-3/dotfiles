@@ -9,6 +9,7 @@ alias lzg='lazygit'
 alias fetch='fastfetch'
 alias ls='eza'
 alias remove-metadata='~/Scripts/remove_metadata.sh'
+alias lg='~/Scripts/game_launcher.sh'
 
 # cpu stuff
 alias mhz='cat /proc/cpuinfo | grep "MHz"'
