@@ -1,0 +1,196 @@
+set previewer ~/.config/lf/scripts/preview.sh
+set cleaner ~/.config/lf/scripts/cleaner.sh
+set shell zsh
+set shellopts '-eu'
+set ifs "\n"
+set info size:time
+set dircounts
+set hidden false 
+set ignorecase true
+set ratios 1:5
+set scrolloff 10
+set drawbox
+set nopreview
+
+cmd toggle-preview %{{
+    if [ "$lf_preview" = true ]; then
+        lf -remote "send $id :set preview false; set ratios 1:5"
+        echo "Preview is off"
+    else
+        lf -remote "send $id :set preview true; set ratios 1:2:3"
+        echo "Preview is on"
+    fi
+}}
+
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  nvim $ans
+}}
+
+cmd openeditor ${{
+  nvim "$f"
+}}
+
+# y (select for copy) and P to paste soft-link
+# x (select for cut) and P to paste hard-link
+cmd mklink %{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    if [ "$#" -lt 1 ]; then
+        lf -remote "send $id echo no files to link"
+        exit 0
+    fi
+    case "$mode" in
+        # symbolically copy mode is indicating a soft link
+        copy) ln -sr -t . -- "$@";;
+        # while a move mode is indicating a hard link
+        move) ln -t . -- "$@";;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
+}}
+
+cmd follow_link %{{
+  lf -remote "send ${id} select '$(readlink $f)'"
+}}
+
+cmd bookmark_jump ${{
+  res="$(cat /home/unknown/.config/lf/bookmarks/$(ls /home/unknown/.config/lf/bookmarks | fzf))"
+  lf -remote "send $id cd \"$res\""
+}}
+
+cmd mkbookmark ${{
+  printf "Bookmark Name: "
+  read ans
+  echo $PWD > /home/unknown/.config/lf/bookmarks/$ans
+}}
+
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
+
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+cmd targz %tar cvzf "$(basename "$f").tar.gz" "$(basename $f)"
+
+cmd zip ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
+}}
+
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    file=${files%%;*}
+
+    trash-put "$(basename "$file")"
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
+  done
+}}
+
+cmd restore_trash ${{
+  trash-restore
+}}
+
+cmd set_wallpaper ${{
+    feh --bg-fill "$f"
+}}
+
+cmd set_color_scheme ${{
+    wal -i "$f"
+}}
+
+cmd edit-config ${{
+    nvim ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+cmd paste-override &{{
+	set -f
+	mode=$(head -1 ~/.local/share/lf/files)
+	list=$(sed 1d ~/.local/share/lf/files)
+	set -- _ $list; shift
+	[ $# -gt 0 ] || exit
+	case $mode in
+		copy)
+			rsync -r "$@" ./
+			;;
+		move)
+			rsync -r --remove-source-files "$@" ./
+			;;
+	esac
+	lf -remote 'save\nmove\n'
+	lf -remote "send $id load"
+	lf -remote "send $id echo \"\033[0;32mpasted $# file(s)\033[0m\""
+}}
+
+map C edit-config
+map d
+map m
+map p
+map au unarchive
+map az zip
+map at tar 
+map am targz
+map e openeditor
+map o &xdg-open $f
+
+map zp toggle-preview
+map . set hidden!
+map dd trash
+map dr restore_trash
+map pp paste
+map po paste-override
+map x cut
+map y copy
+map <enter> open
+map R reload
+map mf mkfile
+map md mkdir
+map ml mklink
+map mb mkbookmark
+map sw set_wallpaper
+map sc set_color_scheme 
+map t search
+
+# Go to
+map gH cd ~/HD
+map gD cd ~/Documents
+map gd cd ~/HD/downloads
+map gp cd ~/Pictures
+map gc cd ~/.config
+map gr cd ~/HD/repos
+map gt cd ~/.local/share/Trash/files
+map gb bookmark_jump
+map gL follow_link
+map gw cd ~/Pictures/Wallpapers/
+
+# Warn about nested instances
+&[ "$LF_LEVEL" -eq 1 ] || lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""

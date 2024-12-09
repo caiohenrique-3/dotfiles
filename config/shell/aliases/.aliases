@@ -1,0 +1,52 @@
+# General Utilities
+alias lfub='~/.config/lf/scripts/lfub.sh'
+alias weather='curl wttr.in | bat'
+alias lzg='lazygit'
+alias ls='eza'
+alias lsa='eza --long --icons -h -all'
+alias lg='~/Scripts/game_launcher.sh'
+
+# CPU & System Monitoring
+alias mhz='cat /proc/cpuinfo | grep "MHz"'
+alias cputemp="sensors | awk '/^Tctl/ {print $2}'"
+
+# YouTube and Media Downloading
+alias yt='ytfzf' 
+alias yh='ytfzf -H'
+alias yha='ytfzf -H -m'
+alias yss='ytfzf -c youtube-subscriptions'
+alias ysc='~/Scripts/ytfzf-scrap-ch.sh ~/.config/ytfzf/ytch'
+alias dlvid='yt-dlp -S res,ext:mp4:m4a --recode mp4'
+alias dlmp3='yt-dlp -f 'ba' -x --audio-format mp3'
+
+# Directory Navigation
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+# Calculator and Math
+alias bc='bc -l'
+
+# Networking & Ping
+alias ping='ping -c 5'
+alias fastping='ping -c 100 -s.2'
+
+# Safety Nets for File Operations
+alias rm='rm -I --preserve-root'
+alias mv='mv -iv'
+alias cp='cp -iv'
+alias ln='ln -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+# File Downloading & Directory Creation
+alias wget='wget -c'
+alias mkdir='mkdir -pv'
+
+# Disk Usage / Folder Size
+alias fs='du -hs'
