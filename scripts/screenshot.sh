@@ -1,21 +1,6 @@
 #!/bin/sh
 
-SCREENSHOT_DIR="$HOME/Pictures/wl-screenshots"
-
-if ! command -v grim &> /dev/null; then
-  notify-send "Error" "grim is not installed"
-  exit 1
-fi
-
-if ! command -v slurp &> /dev/null; then
-  notify-send "Error" "slurp is not installed"
-  exit 1
-fi
-
-if ! command -v wmenu &> /dev/null; then
-  notify-send "Error" "wmenu is not installed"
-  exit 1
-fi
+SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
 
 take_screenshot() {
   local filename=$1
@@ -52,24 +37,38 @@ take_temp_screenshot() {
 
 FILENAME="$SCREENSHOT_DIR/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
 
-CHOICE=$(echo -e "Screenshot Whole Screen\nScreenshot Selection\nScreenshot Whole Screen and Copy to Clipboard\nScreenshot Selection and Copy to Clipboard" | wmenu -f "JetBrainsMono Nerd Font 14")
+show_help() {
+  echo "Usage: $0 {full|select|full_clip|select_clip|help}"
+  echo "Options:"
+  echo "  full        - Screenshot the whole screen"
+  echo "  select      - Screenshot a selection"
+  echo "  full_clip   - Screenshot the whole screen and copy to clipboard"
+  echo "  select_clip - Screenshot a selection and copy to clipboard"
+  echo "  help        - Display this help message"
+}
 
-case "$CHOICE" in
-  "Screenshot Whole Screen")
+case "$1" in
+  full)
     take_screenshot "$FILENAME" "false" "false" "HDMI-A-1"
+    notify-send "Screenshot Taken" "Screenshot saved to $FILENAME"
     ;;
-  "Screenshot Selection")
+  select)
     take_screenshot "$FILENAME" "false" "true" ""
+    notify-send "Screenshot Taken" "Screenshot saved to $FILENAME"
     ;;
-  "Screenshot Whole Screen and Copy to Clipboard")
+  full_clip)
     take_temp_screenshot "true" "false" "HDMI-A-1"
+    notify-send "Screenshot Taken" "Screenshot saved to $FILENAME"
     ;;
-  "Screenshot Selection and Copy to Clipboard")
+  select_clip)
     take_temp_screenshot "true" "true" ""
+    notify-send "Screenshot Taken" "Screenshot saved to $FILENAME"
+    ;;
+  help)
+    show_help
     ;;
   *)
-    echo "Invalid option"
+    echo "Invalid option. Use './script help' to see available options."
+    exit 1
     ;;
 esac
-
-notify-send "Screenshot Taken" "Screenshot saved to $FILENAME"
