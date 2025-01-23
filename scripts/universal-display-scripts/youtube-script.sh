@@ -4,7 +4,7 @@ HISTORY_DIR="$HOME/.local/share/youtube-script"
 HISTORY_FILE="$HISTORY_DIR/history"
 LOG_FILE="$HISTORY_DIR/mpv_log.txt"
 ENABLE_CLIPBOARD_PROMPT=true
-ALWAYS_USE_CLIPBOARD=false
+ALWAYS_USE_CLIPBOARD=${ALWAYS_USE_CLIPBOARD:-false}
 
 mkdir -p "$HISTORY_DIR"
 
@@ -31,7 +31,7 @@ function play_video() {
         # Extract the JSON data from the line
         local json=$(echo "$json_line" | sed 's/.*user-data\/mpv\/ytdl\/json-subprocess-result=//')
 
-        # Extract playlist URL
+        # Extract the command line options line for the playlist URL
         local cmd_line=$(grep -m 1 'Command line options:' "$LOG_FILE")
         local playlist_url=$(echo "$cmd_line" | grep -oP 'https?://[^ ]+/playlist\?list=[^ ]*')
 
@@ -40,6 +40,7 @@ function play_video() {
 
         if [[ -n "$title" ]]; then
             if [[ -n "$playlist_url" ]]; then
+                # Remove any trailing characters from the URL
                 playlist_url=$(echo "$playlist_url" | sed "s/'//g")
                 add_to_history "$title" "$playlist_url"
             else
