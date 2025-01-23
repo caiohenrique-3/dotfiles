@@ -1,23 +1,15 @@
 #!/bin/sh
 
-if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-    clipboard_cmd="wl-copy"
-    menu_cmd="wmenu"
-else
-    clipboard_cmd="xclip -selection clipboard"
-    menu_cmd="dmenu"
-fi
-
 options="ä\nö\nü\nÄ\nÖ\nÜ"
 
-selected_option=$(echo -e "$options" | $menu_cmd -f "JetBrainsMono Nerd Font 14" -p "Umlaut auswählen:")
+selected_option=$(echo -e "$options" | wmenu -f "monospace 18" -p "Umlaut auswählen:")
 
 case $selected_option in
-    "ä") echo -n "ä" | $clipboard_cmd ;;
-    "ö") echo -n "ö" | $clipboard_cmd ;;
-    "ü") echo -n "ü" | $clipboard_cmd ;;
-    "Ä") echo -n "Ä" | $clipboard_cmd ;;
-    "Ö") echo -n "Ö" | $clipboard_cmd ;;
-    "Ü") echo -n "Ü" | $clipboard_cmd ;;
+    "ä") echo -n "ä" | wl-copy ;;
+    "ö") echo -n "ö" | wl-copy ;;
+    "ü") echo -n "ü" | wl-copy ;;
+    "Ä") echo -n "Ä" | wl-copy ;;
+    "Ö") echo -n "Ö" | wl-copy ;;
+    "Ü") echo -n "Ü" | wl-copy ;;
     *) ;;
 esac
