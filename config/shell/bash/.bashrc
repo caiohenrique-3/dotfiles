@@ -1,5 +1,6 @@
 [[ $- == *i* ]] && source /usr/share/blesh/ble.sh
 
+export XDG_RUNTIME_DIR=/tmp/xdg-runtime-$(id -u) && mkdir -p $XDG_RUNTIME_DIR
 export FZF_DEFAULT_OPTS="--bind j:down,k:up"
 export EDITOR='nvim'
 export MANPAGER="less --RAW-CONTROL-CHARS --use-color --color=d+g --color=u+y"
