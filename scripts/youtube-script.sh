@@ -21,9 +21,14 @@ function add_to_history() {
 function play_video() {
     local url="$1"
     local from_history="${2:-false}"
+    local audio_only="${3:-false}"
 
     if [[ "$from_history" == "false" ]]; then
-        mpv --log-file="$LOG_FILE" "$url"
+        if [[ "$audio_only" == "true" ]]; then
+            mpv --no-video --log-file="$LOG_FILE" "$url"
+        else
+            mpv --log-file="$LOG_FILE" "$url"
+        fi
 
         # Extract the line containing the JSON data
         local json_line=$(grep -m 1 'user-data/mpv/ytdl/json-subprocess-result=' "$LOG_FILE")
@@ -50,7 +55,11 @@ function play_video() {
             echo "Failed to extract video title."
         fi
     else
-        mpv "$url"
+        if [[ "$audio_only" == "true" ]]; then
+            mpv --no-video "$url"
+        else
+            mpv "$url"
+        fi
     fi
 }
 
@@ -77,7 +86,7 @@ function prompt_for_link() {
         if [[ ! "$url" =~ ^https ]]; then
             url="https://www.youtube.com/watch?v=$url"
         fi
-        play_video "$url"
+        play_video "$url" false "$1"
     else
         echo "Invalid URL or video/playlist ID."
     fi
@@ -95,17 +104,20 @@ function show_history() {
     if [[ -n "$selection" ]]; then
         local id
         id=$(echo "$selection" | sed 's/.* - //')
-        play_video "$id" true
+        play_video "$id" true "$1"
     fi
 }
 
 function show_usage() {
-    echo "Usage: youtube-script <COMMAND>"
+    echo "Usage: youtube-script <COMMAND> [audio-only]"
     echo
     echo "Commands:"
     echo "  help          Show usage information"
     echo "  watch         Watch a video and save it to history"
     echo "  history       Show video history and select an item to watch"
+    echo
+    echo "Optional flags:"
+    echo "  audio-only    Play audio only"
 }
 
 case "$1" in
@@ -113,10 +125,18 @@ case "$1" in
         show_usage
         ;;
     watch)
-        prompt_for_link
+        if [[ "$2" == "audio-only" ]]; then
+            prompt_for_link "true"
+        else
+            prompt_for_link "false"
+        fi
         ;;
     history)
-        show_history
+        if [[ "$2" == "audio-only" ]]; then
+            show_history "true"
+        else
+            show_history "false"
+        fi
         ;;
     *)
         show_usage

@@ -2,7 +2,9 @@ alias lfub='~/.config/lf/scripts/lfub.sh'
 alias lg='~/Scripts/game_launcher.sh'
 
 alias yt='~/Scripts/youtube-script.sh watch'
+alias yta='~/Scripts/youtube-script.sh watch audio-only'
 alias yh='~/Scripts/youtube-script.sh history'
+alias yha='~/Scripts/youtube-script.sh history audio-only'
 alias ys='ytfzf -L | tee >(wl-copy) && ALWAYS_USE_CLIPBOARD=true ~/Scripts/youtube-script.sh watch'
 
 alias lzg='lazygit'
